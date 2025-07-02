@@ -1,16 +1,16 @@
-import { useParams } from 'react-router-dom';
-import { eventQueries } from '~entities/events';
-import { Typography, Card, CircularProgress, Alert } from '@mui/material';
+import { useParams } from 'react-router-dom'
+import { eventQueries } from '~entities/events'
+import { Typography, Card, CircularProgress, Alert } from '@mui/material'
 
 export const EventPage = () => {
-  const { slug } = useParams();
-  const { data, isLoading, isError } = eventQueries.useGetEventDetail(slug);
+  const { slug } = useParams()
+  const { data, isLoading, isError } = eventQueries.useGetEventDetail(slug)
 
-  if (isLoading) return <CircularProgress className="block mx-auto mt-10" />;
+  if (isLoading) return <CircularProgress className="block mx-auto mt-10" />
   if (isError || !data)
-    return <Alert severity="error">Ошибка загрузки события</Alert>;
+    return <Alert severity="error">Ошибка загрузки события</Alert>
 
-  console.log('data', data);
+  console.log('data', data)
 
   return (
     <div className="max-w-3xl mx-auto p-5">
@@ -35,5 +35,5 @@ export const EventPage = () => {
         </Typography>
       </Card>
     </div>
-  );
-};
+  )
+}
